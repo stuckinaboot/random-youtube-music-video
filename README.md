@@ -17,6 +17,7 @@ const youtubeUrl = await randomUrlGen.getRandomMusicVideoUrl();
 
 console.log(youtubeUrl);
 // `https://www.youtube.com/watch?v=XXYlFuWEuKI` (prints youtube video url)
+```
 
 # Disclaimer
 
