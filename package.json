@@ -1,0 +1,12 @@
+{
+  "name": "random-youtube-music-video",
+  "version": "1.0.0",
+  "description": "Get the URL of a random music video on Youtube",
+  "main": "index.js",
+  "repository": "https://github.com/stuckinaboot/random-youtube-music-video.git",
+  "author": "Aspyn Palatnick <paluter@yahoo.com>",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}
