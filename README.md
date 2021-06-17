@@ -1,4 +1,4 @@
-# random-youtube-music-video
+# random-youtube-music-video 📺
 Fetch the URL of a random music video on YouTube
 
 # Description
@@ -18,6 +18,10 @@ const youtubeUrl = await randomUrlGen.getRandomMusicVideoUrl();
 console.log(youtubeUrl);
 // `https://www.youtube.com/watch?v=XXYlFuWEuKI` (prints youtube video url)
 ```
+
+# Acknowledgements
+
+This repo draws heavily on work done here: https://github.com/amitness/shuffle.
 
 # Disclaimer
 
