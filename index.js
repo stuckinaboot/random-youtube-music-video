@@ -87,7 +87,7 @@ async function getRandomMusicVideoUrl() {
   // Ideally we want a youtube video without embed in its url
   // because embedded videos sometimes won't load (and require you to view
   // them on youtube), so retry a few times to try to get a non-embedded video url
-  let numTriesForNonEmbed = 5;
+  let numTriesForNonEmbed = 15;
   let mainUrl = "";
   while (numTriesForNonEmbed > 0) {
     numTriesForNonEmbed--;
