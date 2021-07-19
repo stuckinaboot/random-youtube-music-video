@@ -83,23 +83,31 @@ async function getMainSiteYoutubeMusicVideoUrl(embedUrl) {
   return txt.substring(realUrlStartIdx, realUrlEndIdx);
 }
 
-async function getRandomMusicVideoUrl() {
+async function getRandomMusicVideoUrl(preventEmbedded) {
   // Ideally we want a youtube video without embed in its url
   // because embedded videos sometimes won't load (and require you to view
   // them on youtube), so retry a few times to try to get a non-embedded video url
   let numTriesForNonEmbed = 15;
   let mainUrl = "";
+  let containsEmbed = false;
+
   while (numTriesForNonEmbed > 0) {
     numTriesForNonEmbed--;
 
     let embedUrl = getEmbedMusicVideoUrl();
     mainUrl = await getMainSiteYoutubeMusicVideoUrl(embedUrl);
-    const containsEmbed =
+    containsEmbed =
       mainUrl.indexOf("https://www.youtube.com/embed/?list=") !== -1;
     if (!containsEmbed) {
       return mainUrl;
     }
   }
+
+  if (preventEmbedded && containsEmbed) {
+    // Return null if the url contains embed
+    return null;
+  }
+
   return mainUrl;
 }
 
