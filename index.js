@@ -1,4 +1,11 @@
-const fetch = require("node-fetch");
+const nodeFetch = require("node-fetch");
+
+let coreFetch;
+if (typeof window === "undefined") {
+  coreFetch = nodeFetch;
+} else {
+  coreFetch = fetch;
+}
 
 const playlists = [
   {
@@ -67,7 +74,7 @@ async function getMainSiteYoutubeMusicVideoUrl(embedUrl) {
   if (embedUrl == null) {
     throw new Error("embedUrl is null");
   }
-  const res = await fetch(embedUrl);
+  const res = await coreFetch(embedUrl);
   const txt = await res.text();
 
   const realUrlStartIdx = txt.indexOf("https://www.youtube.com/watch?v=");
